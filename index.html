@@ -72,7 +72,7 @@
                 const hurigana = $('input[name="hurigana"]').val();
                 const dmpid  = $('input[name="dmpid"]').val();
                 const entrynumber  = $('input[name="entrynumber"]').val();
-                const msg = `${name}\n${hurigana}\n${dmpid}\n${entrynumber}`;
+                const msg = `${handlename}\n${hurigana}\n${dmpid}\n${entrynumber}`;
                 sendText(msg);
                 return false;
             });
