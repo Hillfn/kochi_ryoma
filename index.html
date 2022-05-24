@@ -12,7 +12,7 @@
     <form class="w-75 mx-auto">
         <p class="mt-3">ハンドルネーム</p>
         <div>
-            <input class="form-control w-100 mt-1" name="hn" placeholder="" required>
+            <input class="form-control w-100 mt-1" name="handlename" placeholder="" required>
         </div>
         <p class="mt-3">ふりがな</p>
         <div>
@@ -21,6 +21,10 @@
         <p class="mt-3">DMPID</p>
         <div>
             <input class="form-control w-100 mt-1" name="dmpid" required>
+        </div>
+        <p class="mt-3">参加表明番号</p>
+        <div>
+            <input class="form-control w-100 mt-1" name="entrynumber" required>
         </div>
 
         <input type="submit" class="mt-4 btn btn-primary" value="送信">
@@ -64,10 +68,11 @@
 
         $(function () {
             $('form').submit(function () {
-                const name    = $('input[name="hn"]').val();
-                const udetate = $('input[name="hurigana"]').val();
-                const fukkin  = $('input[name="dmpid"]').val();
-                const msg = `${hn}\n${hurigana}\n${dmpid}`;
+                const handlename    = $('input[name="handlename"]').val();
+                const hurigana = $('input[name="hurigana"]').val();
+                const dmpid  = $('input[name="dmpid"]').val();
+                const entrynumber  = $('input[name="entrynumber"]').val();
+                const msg = `${name}\n${hurigana}\n${dmpid}\n${entrynumber}`;
                 sendText(msg);
                 return false;
             });
