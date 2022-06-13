@@ -72,13 +72,14 @@
 
         function sendText(text) {
             liff.sendMessages([{
-                'type': 'image',
-                originalContentUrl: 'https://gamepress.gg/lostword/sites/lostword/files/2022-01/20210910_400501_%E5%8D%81%E5%85%AD%E5%A4%9C%E5%92%B2%E5%A4%9C_%5B%E7%B4%85%5D%E7%B4%85%E9%AD%94%E9%A4%A8%E3%81%AE%E3%83%A1%E3%82%A4%E3%83%89_%E7%AB%8B%E3%81%A1%E7%B5%B5_FIX.png',
-                previewImageUrl: 'https://gamepress.gg/lostword/sites/lostword/files/2022-01/20210910_400501_%E5%8D%81%E5%85%AD%E5%A4%9C%E5%92%B2%E5%A4%9C_%5B%E7%B4%85%5D%E7%B4%85%E9%AD%94%E9%A4%A8%E3%81%AE%E3%83%A1%E3%82%A4%E3%83%89_%E7%AB%8B%E3%81%A1%E7%B5%B5_FIX.png'
-              },{
                 'type': 'text',
                 'text': text
-            }]).then(function () {
+            },{
+                'type': 'image',
+                originalContentUrl: hoge.files[0],
+                previewImageUrl: hoge.files[0]
+            }
+            ]).then(function () {
                 liff.closeWindow();
             }).catch(function (error) {
                 window.alert('Failed to send message ' + error);
