@@ -26,6 +26,27 @@
         <div>
             <input class="form-control w-100 mt-1" name="entrynumber" required>
         </div>
+        <p>デッキ画像<br>
+            <input type="file" name="deckimg" onchange="previewFile(this);" required></p>
+        <div>
+            <input type="submit" class="mt-4 btn btn-primary" value="送信">
+        </div>
+
+        <div>
+        <img id="preview">
+        <script>
+            function previewFile(hoge){
+              var fileData = new FileReader();
+              fileData.onload = (function() {
+                //id属性が付与されているimgタグのsrc属性に、fileReaderで取得した値の結果を入力することで
+                //プレビュー表示している
+                document.getElementById('preview').src = fileData.result;
+              });
+              fileData.readAsDataURL(hoge.files[0]);
+            }
+            </script>
+            </div>
+    </form>
 
         <input type="submit" class="mt-4 btn btn-primary" value="送信">
     </form>
@@ -54,6 +75,10 @@
 
         function sendText(text) {
             liff.sendMessages([{
+                'type': 'image',
+                originalContentUrl: 'https://gamepress.gg/lostword/sites/lostword/files/2022-01/20210910_400501_%E5%8D%81%E5%85%AD%E5%A4%9C%E5%92%B2%E5%A4%9C_%5B%E7%B4%85%5D%E7%B4%85%E9%AD%94%E9%A4%A8%E3%81%AE%E3%83%A1%E3%82%A4%E3%83%89_%E7%AB%8B%E3%81%A1%E7%B5%B5_FIX.png',
+                previewImageUrl: 'https://gamepress.gg/lostword/sites/lostword/files/2022-01/20210910_400501_%E5%8D%81%E5%85%AD%E5%A4%9C%E5%92%B2%E5%A4%9C_%5B%E7%B4%85%5D%E7%B4%85%E9%AD%94%E9%A4%A8%E3%81%AE%E3%83%A1%E3%82%A4%E3%83%89_%E7%AB%8B%E3%81%A1%E7%B5%B5_FIX.png'
+              },{
                 'type': 'text',
                 'text': text
             }]).then(function () {
