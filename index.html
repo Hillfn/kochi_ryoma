@@ -34,17 +34,6 @@
 
         <div>
         <img id="preview">
-        <script>
-            function previewFile(hoge){
-              var fileData = new FileReader();
-              fileData.onload = (function() {
-                //id属性が付与されているimgタグのsrc属性に、fileReaderで取得した値の結果を入力することで
-                //プレビュー表示している
-                document.getElementById('preview').src = fileData.result;
-              });
-              fileData.readAsDataURL(hoge.files[0]);
-            }
-            </script>
             </div>
     </form>
 
@@ -54,6 +43,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
+        function previewFile(hoge){
+            var fileData = new FileReader();
+            fileData.onload = (function() {
+            //id属性が付与されているimgタグのsrc属性に、fileReaderで取得した値の結果を入力することで
+            //プレビュー表示している
+            document.getElementById('preview').src = fileData.result;
+            });
+            fileData.readAsDataURL(hoge.files[0]);
+        }
 
         $(document).ready(function () {
             const liffId = "1657160682-PNeGKZgD";
